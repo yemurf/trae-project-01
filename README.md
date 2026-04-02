@@ -1,57 +1,37 @@
-# React + TypeScript + Vite
+# 감정 일기장 (Diary)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+매일 기분(이모티콘)과 몇 줄의 글을 남기고, 사진/음성 메모를 첨부할 수 있는 일기장 앱입니다. 지난 기록은 히스토리(스크롤/달력)로 쉽게 찾아볼 수 있고, 트렌드 페이지에서 감정 변화와 단어/비율 시각화를 확인할 수 있어요.
 
-Currently, two official plugins are available:
+## 배포 바로가기
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- https://<your-project>.vercel.app
 
-## Expanding the ESLint configuration
+## 주요 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 일기 작성/수정/삭제: 기분(이모티콘) 선택 + 강도(1~5) + 텍스트 + 사진/음성 첨부
+- 홈: “새 일기”로 빠른 추가 + 최근 일기 목록
+- 히스토리: 스크롤 목록 + 달력 날짜 클릭으로 조회
+- 트렌드: 기간(7/30/90일) 기준 기분 변화, 단어 빈도 카드, 감정 비율 파이 차트
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 기술 스택
+
+- React + TypeScript + Vite
+- React Router
+- IndexedDB(idb) 로컬 저장
+- Recharts 차트
+- Tailwind CSS
+
+## 실행 방법
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 품질 체크
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm run check
+npm run lint
+npm run build
 ```
